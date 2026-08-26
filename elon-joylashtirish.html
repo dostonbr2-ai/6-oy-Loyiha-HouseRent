@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E'lon joylashtirish — HouseRent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-2xl shadow-md">
+                    <i class="bi bi-house-door-fill"></i>
+                </div>
+                <div>
+                    <span class="text-2xl font-extrabold text-slate-900">House<span class="text-emerald-600">Rent</span></span>
+                    <span class="block text-xs uppercase font-bold text-emerald-600">Uzbekistan</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm">
+                <a href="index.html" class="text-slate-600 hover:text-emerald-600 font-medium">Bosh sahifa</a>
+                <a href="uylar.html" class="text-slate-600 hover:text-emerald-600 font-medium">Uylar katalogi</a>
+                <a href="mening-elonlarim.html" class="text-slate-600 hover:text-emerald-600 font-medium">Mening e'lonlarim</a>
+                <a href="profil.html" class="text-slate-600 hover:text-emerald-600 font-medium">Profil</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="elon-joylashtirish.html" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold px-5 py-2.5 rounded-xl shadow-md flex items-center gap-2">
+                    <i class="bi bi-plus-circle-fill"></i> E'lon berish
+                </a>
+                <a href="profil.html" class="w-10 h-10 rounded-full overflow-hidden border-2 border-emerald-500 shadow-sm" title="Profil">
+                    <img src="./images/avatar.jpg" alt="Jasur Rahimov" class="w-full h-full object-cover">
+                </a>
+            </div>
+
+            <button id="menyuTugmasi" class="md:hidden text-2xl text-slate-800 p-2">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+
+        <div id="mobilMenyu" style="display: none;" class="md:hidden bg-white border-b border-slate-200 px-6 py-4 text-sm">
+            <div class="flex justify-between items-center pb-2 border-b border-slate-100 mb-3">
+                <span class="font-bold text-slate-800">Menyu</span>
+                <button id="menyuYopish" class="text-xl text-slate-500"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="flex flex-col gap-3">
+                <a href="index.html" class="font-semibold text-slate-700">Bosh sahifa</a>
+                <a href="uylar.html" class="font-semibold text-slate-700">Uylar katalogi</a>
+                <a href="mening-elonlarim.html" class="font-semibold text-slate-700">Mening e'lonlarim</a>
+                <a href="profil.html" class="font-semibold text-slate-700">Shaxsiy profil</a>
+                <a href="elon-joylashtirish.html" class="text-center bg-emerald-600 text-white font-bold py-2.5 rounded-xl mt-1">+ E'lon berish</a>
+            </div>
+        </div>
+    </header>
+    
+
+    <main class="max-w-4xl mx-auto px-6 py-10">
+        <div class="text-center mb-8">
+            <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Bepul e'lon</span>
+            <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-1">Yangi ijara e'lonini joylashtirish</h1>
+            <p class="text-xs text-slate-500 mt-1">Ma'lumotlarni to'ldiring va e'loningizni 1 kunda faollashtiring</p>
+        </div>
+
+        <div class="grid grid-cols-4 gap-2 text-center mb-8 max-w-xl mx-auto">
+            <div class="bg-white p-3 rounded-2xl border border-emerald-500 shadow-sm">
+                <span class="block text-emerald-600 font-extrabold text-sm">1</span>
+                <span class="text-xs font-bold text-slate-700">Asosiy</span>
+            </div>
+            <div class="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm">
+                <span class="block text-slate-400 font-extrabold text-sm">2</span>
+                <span class="text-xs font-bold text-slate-500">Manzil & Narx</span>
+            </div>
+            <div class="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm">
+                <span class="block text-slate-400 font-extrabold text-sm">3</span>
+                <span class="text-xs font-bold text-slate-500">Rasmlar</span>
+            </div>
+            <div class="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm">
+                <span class="block text-slate-400 font-extrabold text-sm">4</span>
+                <span class="text-xs font-bold text-slate-500">Aloqa</span>
+            </div>
+        </div>
+
+        <div class="bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-xl max-w-2xl mx-auto">
+            <div id="qadam1" class="flex flex-col gap-5">
+                <div class="border-b border-slate-100 pb-3">
+                    <h2 class="text-base font-extrabold text-slate-900">1-bosqich: Ko'chmas mulk parametrlari</h2>
+                    <p class="text-xs text-slate-500">Uyingizning asosiy turini va xususiyatlarini tanlang</p>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">E'lon sarlavhasi *</label>
+                    <input type="text" placeholder="Masalan: Yunusobod 4-mavzeda 3 xonali shinam kvartira" class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 text-xs">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Uy turi *</label>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs font-bold">
+                        <div class="p-3 border-2 border-emerald-500 bg-emerald-50 text-emerald-800 rounded-2xl cursor-pointer">
+                            <i class="bi bi-building text-xl block mb-1 text-emerald-600"></i> Kvartira
+                        </div>
+                        <div class="p-3 border border-slate-200 hover:border-emerald-500 rounded-2xl cursor-pointer">
+                            <i class="bi bi-house-door text-xl block mb-1 text-slate-600"></i> Hovli uy
+                        </div>
+                        <div class="p-3 border border-slate-200 hover:border-emerald-500 rounded-2xl cursor-pointer">
+                            <i class="bi bi-buildings text-xl block mb-1 text-slate-600"></i> Yangi bino
+                        </div>
+                        <div class="p-3 border border-slate-200 hover:border-emerald-500 rounded-2xl cursor-pointer">
+                            <i class="bi bi-briefcase text-xl block mb-1 text-slate-600"></i> Ofis
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Xonalar soni</label>
+                        <select class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 text-xs font-bold">
+                            <option>1 xona</option>
+                            <option>2 xona</option>
+                            <option selected>3 xona</option>
+                            <option>4 xona</option>
+                            <option>5+ xona</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Maydoni (m²)</label>
+                        <input type="number" value="82" class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 text-xs font-bold">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Qavat</label>
+                        <input type="number" value="4" class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 text-xs">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Binoning qavati</label>
+                        <input type="number" value="9" class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 text-xs">
+                    </div>
+                </div>
+
+                <div class="flex justify-end pt-3">
+                    <button type="button" id="keyingi1" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3 rounded-2xl text-xs shadow-md">
+                        Keyingi bosqich →
+                    </button>
+                </div>
+            </div>
+
+            <div id="qadam2" style="display: none;" class="flex flex-col gap-5">
+                <div class="border-b border-slate-100 pb-3">
+                    <h2 class="text-base font-extrabold text-slate-900">2-bosqich: Joylashuv va Narx</h2>
+                    <p class="text-xs text-slate-500">Uyingizning aniq manzili va ijara summasi</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Shahar / Viloyat *</label>
+                        <select class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 text-xs font-bold">
+                            <option selected>Toshkent shahri</option>
+                            <option>Samarqand viloyati</option>
+                            <option>Buxoro viloyati</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Tuman *</label>
+                        <select class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 text-xs font-bold">
+                            <option selected>Yunusobod tumani</option>
+                            <option>Chilonzor tumani</option>
+                            <option>Mirzo Ulug'bek</option>
+                            <option>Yakkasaroy</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Aniq manzil (ko'cha va uy raqami) *</label>
+                    <input type="text" placeholder="Masalan: Amir Temur ko'chasi 45-uy" class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 text-xs">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Oylik ijara narxi ($) *</label>
+                        <input type="number" placeholder="550" class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 text-xs font-bold">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Depozit summasi ($)</label>
+                        <input type="number" placeholder="200" class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 text-xs font-bold">
+                    </div>
+                </div>
+
+                <div class="flex justify-between pt-3">
+                    <button type="button" id="orqaga2" class="bg-slate-100 text-slate-700 font-bold px-6 py-3 rounded-2xl text-xs">
+                        ← Orqaga
+                    </button>
+                    <button type="button" id="keyingi2" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3 rounded-2xl text-xs shadow-md">
+                        Keyingi →
+                    </button>
+                </div>
+            </div>
+
+            <div id="qadam3" style="display: none;" class="flex flex-col gap-5">
+                <div class="border-b border-slate-100 pb-3">
+                    <h2 class="text-base font-extrabold text-slate-900">3-bosqich: Rasmlar va Qulayliklar</h2>
+                    <p class="text-xs text-slate-500">Uyingizning fotosuratlari va jihozlarini belgilang</p>
+                </div>
+
+                <div class="border-2 border-dashed border-emerald-500 bg-emerald-50 rounded-3xl p-6 text-center cursor-pointer">
+                    <i class="bi bi-cloud-arrow-up-fill text-3xl text-emerald-600 mb-2 block"></i>
+                    <p class="font-bold text-xs text-slate-800">Rasmlarni yuklash</p>
+                    <p class="text-xs text-slate-500 mt-1">PNG, JPG formatlarda kamida 3 ta sifatli rasm</p>
+                    <button type="button" class="mt-3 bg-white border border-slate-200 px-4 py-1.5 rounded-xl text-xs font-bold text-slate-700 shadow-sm">
+                        Faylni tanlash
+                    </button>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-2">Mavjud qulayliklar</label>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs text-slate-700">
+                        <label class="p-2.5 bg-slate-50 rounded-xl border border-slate-100 flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" checked class="text-emerald-600 rounded"> Wi-Fi internet
+                        </label>
+                        <label class="p-2.5 bg-slate-50 rounded-xl border border-slate-100 flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" checked class="text-emerald-600 rounded"> Konditsioner
+                        </label>
+                        <label class="p-2.5 bg-slate-50 rounded-xl border border-slate-100 flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" checked class="text-emerald-600 rounded"> To'liq mebel
+                        </label>
+                        <label class="p-2.5 bg-slate-50 rounded-xl border border-slate-100 flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" checked class="text-emerald-600 rounded"> Kir yuvish
+                        </label>
+                        <label class="p-2.5 bg-slate-50 rounded-xl border border-slate-100 flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" checked class="text-emerald-600 rounded"> Muzlatkich
+                        </label>
+                        <label class="p-2.5 bg-slate-50 rounded-xl border border-slate-100 flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="text-emerald-600 rounded"> Avtoturargoh
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Qo'shimcha tavsif</label>
+                    <textarea rows="3" placeholder="Uyingizning qo'shimcha qulayliklari haqida yozing..." class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 text-xs"></textarea>
+                </div>
+
+                <div class="flex justify-between pt-3">
+                    <button type="button" id="orqaga3" class="bg-slate-100 text-slate-700 font-bold px-6 py-3 rounded-2xl text-xs">
+                        ← Orqaga
+                    </button>
+                    <button type="button" id="keyingi3" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3 rounded-2xl text-xs shadow-md">
+                        Keyingi →
+                    </button>
+                </div>
+            </div>
+
+            <div id="qadam4" style="display: none;" class="flex flex-col gap-5">
+                <div class="border-b border-slate-100 pb-3">
+                    <h2 class="text-base font-extrabold text-slate-900">4-bosqich: Aloqa va Chop etish</h2>
+                    <p class="text-xs text-slate-500">Ijarachilar siz bilan bog'lanishi uchun ma'lumotlaringiz</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Ismingiz *</label>
+                        <input type="text" value="Jasur Rahimov" class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 text-xs">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Telefon raqamingiz *</label>
+                        <input type="tel" value="+998 90 123-45-67" class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 text-xs">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Telegram username</label>
+                    <input type="text" placeholder="@username" class="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 text-xs">
+                </div>
+
+                <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-xs text-emerald-800 flex items-center gap-2">
+                    <i class="bi bi-shield-check text-lg"></i>
+                    <span>E'loningiz 15 daqiqa ichida tekshiriladi va saytda faollashadi.</span>
+                </div>
+
+                <div class="flex justify-between pt-3">
+                    <button type="button" id="orqaga4" class="bg-slate-100 text-slate-700 font-bold px-6 py-3 rounded-2xl text-xs">
+                        ← Orqaga
+                    </button>
+                    <button type="button" id="elonChopEtish" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3 rounded-2xl text-xs shadow-md">
+                        E'lonni chop etish
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+    <footer class="bg-slate-900 text-slate-400 pt-16 pb-10 mt-20 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-lg font-bold">
+                            <i class="bi bi-house-door-fill"></i>
+                        </div>
+                        <span class="text-xl font-extrabold text-white">House<span class="text-emerald-500">Rent</span></span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                        O‘zbekistonda uylarni qulay, tez va ishonchli ijaraga topish hamda e'lon berish uchun proptech platformasi.
+                    </p>
+                    <div class="flex gap-3 text-white text-sm">
+                        <span class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center hover:bg-emerald-600 cursor-pointer"><i class="bi bi-telegram"></i></span>
+                        <span class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center hover:bg-emerald-600 cursor-pointer"><i class="bi bi-instagram"></i></span>
+                        <span class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center hover:bg-emerald-600 cursor-pointer"><i class="bi bi-facebook"></i></span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-bold text-sm mb-4">Sahifalar</h3>
+                    <div class="flex flex-col gap-2 text-xs">
+                        <a href="index.html" class="hover:text-emerald-400">Bosh sahifa</a>
+                        <a href="uylar.html" class="hover:text-emerald-400">Uylar katalogi</a>
+                        <a href="elon-joylashtirish.html" class="hover:text-emerald-400">E'lon berish</a>
+                        <a href="mening-elonlarim.html" class="hover:text-emerald-400">Mening e'lonlarim</a>
+                        <a href="profil.html" class="hover:text-emerald-400">Shaxsiy profil</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-bold text-sm mb-4">Ommabop hududlar</h3>
+                    <div class="flex flex-col gap-2 text-xs">
+                        <a href="uylar.html" class="hover:text-emerald-400">Toshkent (Yunusobod)</a>
+                        <a href="uylar.html" class="hover:text-emerald-400">Toshkent (Chilonzor)</a>
+                        <a href="uylar.html" class="hover:text-emerald-400">Toshkent (Mirzo Ulug'bek)</a>
+                        <a href="uylar.html" class="hover:text-emerald-400">Samarqand shahri</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-bold text-sm mb-4">Aloqa</h3>
+                    <p class="text-xs text-slate-400 mb-2 flex items-center gap-2"><i class="bi bi-geo-alt-fill text-emerald-500"></i> Toshkent sh., Amir Temur ko'chasi 107</p>
+                    <p class="text-xs text-slate-400 mb-2 flex items-center gap-2"><i class="bi bi-telephone-fill text-emerald-500"></i> +998 (71) 200-00-00</p>
+                    <p class="text-xs text-slate-400 flex items-center gap-2"><i class="bi bi-envelope-fill text-emerald-500"></i> info@houserent.uz</p>
+                </div>
+            </div>
+
+            <div class="pt-8 text-center text-xs text-slate-500">
+                <p>© 2026 HouseRent Uzbekistan. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/main.js"></script>
+    
+</body>
+</html>

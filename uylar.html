@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uylar katalogi — HouseRent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-2xl shadow-md">
+                    <i class="bi bi-house-door-fill"></i>
+                </div>
+                <div>
+                    <span class="text-2xl font-extrabold text-slate-900">House<span class="text-emerald-600">Rent</span></span>
+                    <span class="block text-xs uppercase font-bold text-emerald-600">Uzbekistan</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm">
+                <a href="index.html" class="text-slate-600 hover:text-emerald-600 font-medium">Bosh sahifa</a>
+                <a href="uylar.html" class="text-emerald-600 font-bold border-b-2 border-emerald-600 pb-1">Uylar katalogi</a>
+                <a href="mening-elonlarim.html" class="text-slate-600 hover:text-emerald-600 font-medium">Mening e'lonlarim</a>
+                <a href="profil.html" class="text-slate-600 hover:text-emerald-600 font-medium">Profil</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="elon-joylashtirish.html" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold px-5 py-2.5 rounded-xl shadow-md flex items-center gap-2">
+                    <i class="bi bi-plus-circle-fill"></i> E'lon berish
+                </a>
+                <a href="profil.html" class="w-10 h-10 rounded-full overflow-hidden border-2 border-emerald-500 shadow-sm" title="Profil">
+                    <img src="./images/avatar.jpg" alt="Jasur Rahimov" class="w-full h-full object-cover">
+                </a>
+            </div>
+
+            <button id="menyuTugmasi" class="md:hidden text-2xl text-slate-800 p-2">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+
+        <div id="mobilMenyu" style="display: none;" class="md:hidden bg-white border-b border-slate-200 px-6 py-4 text-sm">
+            <div class="flex justify-between items-center pb-2 border-b border-slate-100 mb-3">
+                <span class="font-bold text-slate-800">Menyu</span>
+                <button id="menyuYopish" class="text-xl text-slate-500"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="flex flex-col gap-3">
+                <a href="index.html" class="font-semibold text-slate-700">Bosh sahifa</a>
+                <a href="uylar.html" class="font-semibold text-slate-700">Uylar katalogi</a>
+                <a href="mening-elonlarim.html" class="font-semibold text-slate-700">Mening e'lonlarim</a>
+                <a href="profil.html" class="font-semibold text-slate-700">Shaxsiy profil</a>
+                <a href="elon-joylashtirish.html" class="text-center bg-emerald-600 text-white font-bold py-2.5 rounded-xl mt-1">+ E'lon berish</a>
+            </div>
+        </div>
+    </header>
+    
+
+    <div class="bg-white border-b border-slate-200 py-6">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+                <h1 class="text-2xl font-extrabold text-slate-900">Uylar katalogi</h1>
+                <p class="text-xs text-slate-500 mt-1">O‘zbekiston bo‘ylab <span class="font-bold text-emerald-600">9 ta</span> eng sara ijara taklifi</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="text-xs font-bold text-slate-500 uppercase">Saralash:</span>
+                <select class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-700">
+                    <option>Eng yangi e'lonlar</option>
+                    <option>Arzondan qimmatga</option>
+                    <option>Qimmatdan arzonga</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <main class="max-w-6xl mx-auto px-6 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <aside class="md:col-span-1">
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm sticky top-28 flex flex-col gap-5">
+                    <h2 class="font-bold text-sm text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+                        <i class="bi bi-funnel text-emerald-600"></i> Filterlar
+                    </h2>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 mb-1">Tuman</label>
+                        <select class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs font-medium">
+                            <option>Barcha tumanlar</option>
+                            <option selected>Yunusobod tumani</option>
+                            <option>Chilonzor tumani</option>
+                            <option>Mirzo Ulug'bek</option>
+                            <option>Yakkasaroy</option>
+                            <option>Mirobod</option>
+                            <option>Samarqand</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 mb-1">Uy turi</label>
+                        <div class="flex flex-col gap-2 text-xs text-slate-700">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" checked class="text-emerald-600 rounded"> Kvartira
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" checked class="text-emerald-600 rounded"> Yangi bino (Novostroyka)
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" checked class="text-emerald-600 rounded"> Hovli / Dacha
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" checked class="text-emerald-600 rounded"> Tijorat / Ofis
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 mb-1">Xonalar soni</label>
+                        <div class="grid grid-cols-4 gap-2 text-xs text-center font-bold">
+                            <button class="py-2 border border-slate-200 rounded-xl hover:border-emerald-500">1</button>
+                            <button class="py-2 border border-slate-200 rounded-xl hover:border-emerald-500">2</button>
+                            <button class="py-2 bg-emerald-600 text-white rounded-xl">3</button>
+                            <button class="py-2 border border-slate-200 rounded-xl hover:border-emerald-500">4+</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 mb-1">Narx oralig'i ($)</label>
+                        <div class="flex items-center gap-2">
+                            <input type="number" value="300" class="w-1/2 bg-slate-50 border border-slate-200 rounded-xl p-2 text-xs">
+                            <span class="text-slate-400">-</span>
+                            <input type="number" value="1200" class="w-1/2 bg-slate-50 border border-slate-200 rounded-xl p-2 text-xs">
+                        </div>
+                    </div>
+
+                    <button class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-2xl text-xs shadow-md">
+                        Filterlarni qo'llash
+                    </button>
+                </div>
+            </aside>
+
+            <div class="md:col-span-3 flex flex-col gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="uy-karta bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-48">
+                                <img src="./images/uy1.jpg" alt="Kvartira" class="w-full h-full object-cover">
+                                <span class="absolute bottom-3 left-3 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-xl">$550 / oy</span>
+                                <button onclick="uySaqlash()" class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center text-slate-700 hover:text-rose-500 shadow">
+                                    <i class="bi bi-heart-fill text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-xs text-slate-500 mb-1"><i class="bi bi-geo-alt-fill text-emerald-600"></i> Yunusobod 4-mavze</p>
+                                <h3 class="font-bold text-slate-900 text-xs mb-2">3 xonali shinam kvartira</h3>
+                                <div class="flex justify-between text-xs text-slate-500 py-1.5 border-t border-slate-100">
+                                    <span>3 xona</span>
+                                    <span>82 m²</span>
+                                    <span>4/9 qavat</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <a href="uy-tafsiloti.html" class="block text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2.5 rounded-xl">
+                                Ko'rish
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="uy-karta bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-48">
+                                <img src="./images/uy2.jpg" alt="Kvartira" class="w-full h-full object-cover">
+                                <span class="absolute bottom-3 left-3 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-xl">$800 / oy</span>
+                                <button onclick="uySaqlash()" class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center text-slate-700 hover:text-rose-500 shadow">
+                                    <i class="bi bi-heart-fill text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-xs text-slate-500 mb-1"><i class="bi bi-geo-alt-fill text-emerald-600"></i> Yakkasaroy tumani</p>
+                                <h3 class="font-bold text-slate-900 text-xs mb-2">Yangi bino 2 xonali lyuks</h3>
+                                <div class="flex justify-between text-xs text-slate-500 py-1.5 border-t border-slate-100">
+                                    <span>2 xona</span>
+                                    <span>68 m²</span>
+                                    <span>7/12 qavat</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <a href="uy-tafsiloti.html" class="block text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2.5 rounded-xl">
+                                Ko'rish
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="uy-karta bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-48">
+                                <img src="./images/uy3.jpg" alt="Hovli" class="w-full h-full object-cover">
+                                <span class="absolute bottom-3 left-3 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-xl">$1,200 / oy</span>
+                                <button onclick="uySaqlash()" class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center text-slate-700 hover:text-rose-500 shadow">
+                                    <i class="bi bi-heart-fill text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-xs text-slate-500 mb-1"><i class="bi bi-geo-alt-fill text-emerald-600"></i> Qibray tumani</p>
+                                <h3 class="font-bold text-slate-900 text-xs mb-2">Keng hovli va basseynli</h3>
+                                <div class="flex justify-between text-xs text-slate-500 py-1.5 border-t border-slate-100">
+                                    <span>5 xona</span>
+                                    <span>240 m²</span>
+                                    <span>6 sotix</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <a href="uy-tafsiloti.html" class="block text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2.5 rounded-xl">
+                                Ko'rish
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="uy-karta bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-48">
+                                <img src="./images/uy4.jpg" alt="Kvartira" class="w-full h-full object-cover">
+                                <span class="absolute bottom-3 left-3 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-xl">$450 / oy</span>
+                                <button onclick="uySaqlash()" class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center text-slate-700 hover:text-rose-500 shadow">
+                                    <i class="bi bi-heart-fill text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-xs text-slate-500 mb-1"><i class="bi bi-geo-alt-fill text-emerald-600"></i> Chilonzor 9-mavze</p>
+                                <h3 class="font-bold text-slate-900 text-xs mb-2">2 xonali toza kvartira</h3>
+                                <div class="flex justify-between text-xs text-slate-500 py-1.5 border-t border-slate-100">
+                                    <span>2 xona</span>
+                                    <span>54 m²</span>
+                                    <span>3/5 qavat</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <a href="uy-tafsiloti.html" class="block text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2.5 rounded-xl">
+                                Ko'rish
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="uy-karta bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-48">
+                                <img src="./images/uy5.jpg" alt="Kvartira" class="w-full h-full object-cover">
+                                <span class="absolute bottom-3 left-3 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-xl">$650 / oy</span>
+                                <button onclick="uySaqlash()" class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center text-slate-700 hover:text-rose-500 shadow">
+                                    <i class="bi bi-heart-fill text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-xs text-slate-500 mb-1"><i class="bi bi-geo-alt-fill text-emerald-600"></i> Mirzo Ulug'bek</p>
+                                <h3 class="font-bold text-slate-900 text-xs mb-2">Park yonidagi 3 xonali uy</h3>
+                                <div class="flex justify-between text-xs text-slate-500 py-1.5 border-t border-slate-100">
+                                    <span>3 xona</span>
+                                    <span>75 m²</span>
+                                    <span>2/9 qavat</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <a href="uy-tafsiloti.html" class="block text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2.5 rounded-xl">
+                                Ko'rish
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="uy-karta bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-48">
+                                <img src="./images/uy6.jpg" alt="Ofis" class="w-full h-full object-cover">
+                                <span class="absolute bottom-3 left-3 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-xl">$1,500 / oy</span>
+                                <button onclick="uySaqlash()" class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center text-slate-700 hover:text-rose-500 shadow">
+                                    <i class="bi bi-heart-fill text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-xs text-slate-500 mb-1"><i class="bi bi-geo-alt-fill text-emerald-600"></i> Mirobod tumani</p>
+                                <h3 class="font-bold text-slate-900 text-xs mb-2">Zamonaviy biznes markazida ofis</h3>
+                                <div class="flex justify-between text-xs text-slate-500 py-1.5 border-t border-slate-100">
+                                    <span>4 xona</span>
+                                    <span>130 m²</span>
+                                    <span>5/8 qavat</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <a href="uy-tafsiloti.html" class="block text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2.5 rounded-xl">
+                                Ko'rish
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="uy-karta bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-48">
+                                <img src="./images/uy7.jpg" alt="Kvartira" class="w-full h-full object-cover">
+                                <span class="absolute bottom-3 left-3 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-xl">$400 / oy</span>
+                                <button onclick="uySaqlash()" class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center text-slate-700 hover:text-rose-500 shadow">
+                                    <i class="bi bi-heart-fill text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-xs text-slate-500 mb-1"><i class="bi bi-geo-alt-fill text-emerald-600"></i> Shayxontohur tumani</p>
+                                <h3 class="font-bold text-slate-900 text-xs mb-2">1 xonali shinam studiya</h3>
+                                <div class="flex justify-between text-xs text-slate-500 py-1.5 border-t border-slate-100">
+                                    <span>1 xona</span>
+                                    <span>42 m²</span>
+                                    <span>3/9 qavat</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <a href="uy-tafsiloti.html" class="block text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2.5 rounded-xl">
+                                Ko'rish
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="uy-karta bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-48">
+                                <img src="./images/uy8.jpg" alt="Kvartira" class="w-full h-full object-cover">
+                                <span class="absolute bottom-3 left-3 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-xl">$350 / oy</span>
+                                <button onclick="uySaqlash()" class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center text-slate-700 hover:text-rose-500 shadow">
+                                    <i class="bi bi-heart-fill text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-xs text-slate-500 mb-1"><i class="bi bi-geo-alt-fill text-emerald-600"></i> Sergeli tumani</p>
+                                <h3 class="font-bold text-slate-900 text-xs mb-2">Yangi bino 2 xonali arzon uy</h3>
+                                <div class="flex justify-between text-xs text-slate-500 py-1.5 border-t border-slate-100">
+                                    <span>2 xona</span>
+                                    <span>58 m²</span>
+                                    <span>5/16 qavat</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <a href="uy-tafsiloti.html" class="block text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2.5 rounded-xl">
+                                Ko'rish
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="uy-karta bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-48">
+                                <img src="./images/uy9.jpg" alt="Dacha" class="w-full h-full object-cover">
+                                <span class="absolute bottom-3 left-3 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-xl">$950 / oy</span>
+                                <button onclick="uySaqlash()" class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center text-slate-700 hover:text-rose-500 shadow">
+                                    <i class="bi bi-heart-fill text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="p-4">
+                                <p class="text-xs text-slate-500 mb-1"><i class="bi bi-geo-alt-fill text-emerald-600"></i> Bo'stonliq (Chorvoq)</p>
+                                <h3 class="font-bold text-slate-900 text-xs mb-2">Tog' manzarali orombaxsh dacha</h3>
+                                <div class="flex justify-between text-xs text-slate-500 py-1.5 border-t border-slate-100">
+                                    <span>4 xona</span>
+                                    <span>180 m²</span>
+                                    <span>8 sotix</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <a href="uy-tafsiloti.html" class="block text-center bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2.5 rounded-xl">
+                                Ko'rish
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center gap-2 pt-6">
+                    <button class="px-4 py-2 bg-emerald-600 text-white rounded-xl text-xs font-bold">1</button>
+                    <button class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-xl text-xs font-bold">2</button>
+                    <button class="px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-xl text-xs font-bold">3</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+    <footer class="bg-slate-900 text-slate-400 pt-16 pb-10 mt-20 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-lg font-bold">
+                            <i class="bi bi-house-door-fill"></i>
+                        </div>
+                        <span class="text-xl font-extrabold text-white">House<span class="text-emerald-500">Rent</span></span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                        O‘zbekistonda uylarni qulay, tez va ishonchli ijaraga topish hamda e'lon berish uchun proptech platformasi.
+                    </p>
+                    <div class="flex gap-3 text-white text-sm">
+                        <span class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center hover:bg-emerald-600 cursor-pointer"><i class="bi bi-telegram"></i></span>
+                        <span class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center hover:bg-emerald-600 cursor-pointer"><i class="bi bi-instagram"></i></span>
+                        <span class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center hover:bg-emerald-600 cursor-pointer"><i class="bi bi-facebook"></i></span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-bold text-sm mb-4">Sahifalar</h3>
+                    <div class="flex flex-col gap-2 text-xs">
+                        <a href="index.html" class="hover:text-emerald-400">Bosh sahifa</a>
+                        <a href="uylar.html" class="hover:text-emerald-400">Uylar katalogi</a>
+                        <a href="elon-joylashtirish.html" class="hover:text-emerald-400">E'lon berish</a>
+                        <a href="mening-elonlarim.html" class="hover:text-emerald-400">Mening e'lonlarim</a>
+                        <a href="profil.html" class="hover:text-emerald-400">Shaxsiy profil</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-bold text-sm mb-4">Ommabop hududlar</h3>
+                    <div class="flex flex-col gap-2 text-xs">
+                        <a href="uylar.html" class="hover:text-emerald-400">Toshkent (Yunusobod)</a>
+                        <a href="uylar.html" class="hover:text-emerald-400">Toshkent (Chilonzor)</a>
+                        <a href="uylar.html" class="hover:text-emerald-400">Toshkent (Mirzo Ulug'bek)</a>
+                        <a href="uylar.html" class="hover:text-emerald-400">Samarqand shahri</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-bold text-sm mb-4">Aloqa</h3>
+                    <p class="text-xs text-slate-400 mb-2 flex items-center gap-2"><i class="bi bi-geo-alt-fill text-emerald-500"></i> Toshkent sh., Amir Temur ko'chasi 107</p>
+                    <p class="text-xs text-slate-400 mb-2 flex items-center gap-2"><i class="bi bi-telephone-fill text-emerald-500"></i> +998 (71) 200-00-00</p>
+                    <p class="text-xs text-slate-400 flex items-center gap-2"><i class="bi bi-envelope-fill text-emerald-500"></i> info@houserent.uz</p>
+                </div>
+            </div>
+
+            <div class="pt-8 text-center text-xs text-slate-500">
+                <p>© 2026 HouseRent Uzbekistan. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/main.js"></script>
+    
+</body>
+</html>

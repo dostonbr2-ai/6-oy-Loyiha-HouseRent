@@ -12,6 +12,11 @@ body {
     color: #0f172a;
 }
 
+input[type="checkbox"] {
+    accent-color: #059669;
+    cursor: pointer;
+}
+
 .uy-karta {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
